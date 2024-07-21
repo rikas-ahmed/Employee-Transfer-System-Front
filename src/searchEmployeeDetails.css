@@ -1,0 +1,88 @@
+.search-container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.heading3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-table {
+  width: 100%;
+  margin: auto;
+  border-collapse: collapse;
+}
+
+.search-table td {
+  padding: 20px;
+  vertical-align: top;
+}
+
+.search-table h4 {
+  text-align: left;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  flex: 1;
+}
+
+.form-group input, .form-group select {
+  flex: 2;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.submit-button, .reset-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.submit-button:hover, .reset-button:hover {
+  background-color: #0056b3;
+}
+
+.results-table {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.results-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: auto;
+}
+
+.results-table th, .results-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.results-table th {
+  background-color: #f2f2f2;
+}
