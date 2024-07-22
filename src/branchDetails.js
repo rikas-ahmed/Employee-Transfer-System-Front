@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './employeeForm.css';
+import { RestCaller } from './API/RestCaller';
 
 const BranchDetails = () => {
   const [activeTab, setActiveTab] = useState('insert');
@@ -15,7 +16,7 @@ const BranchDetails = () => {
       areaMgrID: document.getElementById('areaManagerID').value
     };
     try {
-      const response = await axios.post('http://localhost:3001/api/branch/insert', formData);
+      const response = await RestCaller.post('http://localhost:3001/api/branch/insert', formData);
       setPopupMessage('Branch details added successfully!');
       setMessageType('success');
     } catch (error) {

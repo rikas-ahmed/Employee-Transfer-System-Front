@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './employeeForm.css';
+import { RestCaller } from './API/RestCaller';
 
 const EmployeeDetails = () => {
   const [activeTab, setActiveTab] = useState('insert');
@@ -28,7 +29,7 @@ const EmployeeDetails = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/api/employeeDetails/insert', formData);
+      const response = await RestCaller.post('http://localhost:3001/api/employeeDetails/insert', formData);
       console.log('Employee details inserted:', response.data);
       setPopupMessage('Employee details inserted successfully!');
       showPopup();

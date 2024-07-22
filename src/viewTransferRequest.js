@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './employeeForm.css';
+import { RestCaller } from './API/RestCaller';
 
 const ViewTransfer = () => {
   const [activeTab, setActiveTab] = useState('view');
@@ -11,7 +12,7 @@ const ViewTransfer = () => {
   useEffect(() => {
     const fetchTransferRequests = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/viewTransfer');
+        const response = await RestCaller.get('http://localhost:3001/api/viewTransfer');
         setTransferRequests(response.data);
       } catch (error) {
         console.error('Error fetching transfer requests:', error);

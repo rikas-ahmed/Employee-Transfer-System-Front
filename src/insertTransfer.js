@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './employeeForm.css';
+import { RestCaller } from './API/RestCaller';
 
 const InsertTransfer = () => {
   const [formData, setFormData] = useState({
@@ -25,7 +26,7 @@ const InsertTransfer = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/api/insertTransfer', formData);
+      const response = await RestCaller.post('http://localhost:3001/api/insertTransfer', formData);
       console.log('Transfer request created:', response.data);
       setPopupMessage('Transfer request created successfully!');
       showPopup();

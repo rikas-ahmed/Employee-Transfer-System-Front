@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './employeeForm.css';
+import { RestCaller } from './API/RestCaller';
 
 const DependentDetail = () => {
   const [activeTab, setActiveTab] = useState('insert');
@@ -18,7 +19,7 @@ const DependentDetail = () => {
         relationship: document.getElementById('civilStatus').value
       };
       try {
-        const response = await axios.post('http://localhost:3001/api/dependents/insert', formData);
+        const response = await RestCaller.post('http://localhost:3001/api/dependents/insert', formData);
         setPopupMessage('Dependent details added successfully!');
         setShowPopup(true);
         setTimeout(() => setShowPopup(false), 3000);
