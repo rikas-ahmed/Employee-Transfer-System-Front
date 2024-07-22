@@ -12,7 +12,7 @@ const ViewTransfer = () => {
   useEffect(() => {
     const fetchTransferRequests = async () => {
       try {
-        const response = await RestCaller.get('http://localhost:3001/api/viewTransfer');
+        const response = await RestCaller.get('/viewTransfer');
         setTransferRequests(response.data);
       } catch (error) {
         console.error('Error fetching transfer requests:', error);

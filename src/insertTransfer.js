@@ -26,7 +26,7 @@ const InsertTransfer = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await RestCaller.post('http://localhost:3001/api/insertTransfer', formData);
+      const response = await RestCaller.post('/insertTransfer', formData);
       console.log('Transfer request created:', response.data);
       setPopupMessage('Transfer request created successfully!');
       showPopup();

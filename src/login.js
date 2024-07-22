@@ -10,7 +10,7 @@ const LoginForm = ({ onLoginSuccess }) => {
 
   const handleLogin = async () => {
     try {
-      const response = await RestCaller.post('http://localhost:3001/api/login', { username, password });
+      const response = await RestCaller.post('/login', { username, password });
       if (response.status === 200) {
         onLoginSuccess();
       }

@@ -29,7 +29,7 @@ const EmployeeDetails = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await RestCaller.post('http://localhost:3001/api/employeeDetails/insert', formData);
+      const response = await RestCaller.post('/employeeDetails/insert', formData);
       console.log('Employee details inserted:', response.data);
       setPopupMessage('Employee details inserted successfully!');
       showPopup();

@@ -16,7 +16,7 @@ const BranchDetails = () => {
       areaMgrID: document.getElementById('areaManagerID').value
     };
     try {
-      const response = await RestCaller.post('http://localhost:3001/api/branch/insert', formData);
+      const response = await RestCaller.post('/branch/insert', formData);
       setPopupMessage('Branch details added successfully!');
       setMessageType('success');
     } catch (error) {
