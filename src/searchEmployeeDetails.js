@@ -26,25 +26,25 @@ const SearchEmployeeDetails = () => {
     let params = {};
 
     if (formData.namePattern) {
-      endpoint = 'http://localhost:3001/api/employeeSearch/byName';
+      endpoint = '/employeeSearch/byName';
       params = { name: formData.namePattern };
     } else if (formData.empNo) {
-      endpoint = 'http://localhost:3001/api/employeeSearch/byNumber';
+      endpoint = '/employeeSearch/byNumber';
       params = { number: formData.empNo };
     } else if (formData.jobCategory) {
-      endpoint = 'http://localhost:3001/api/employeeSearch/byCategory';
+      endpoint = '/employeeSearch/byCategory';
       params = { category: formData.jobCategory };
     } else if (formData.expCurrentBranch) {
-      endpoint = 'http://localhost:3001/api/employeeSearch/experienceGreaterThan';
+      endpoint = '/employeeSearch/experienceGreaterThan';
       params = { years: formData.expCurrentBranch };
     } else if (formData.expCurrentBranch2) {
-      endpoint = 'http://localhost:3001/api/employeeSearch/experienceLessThan';
+      endpoint = '/employeeSearch/experienceLessThan';
       params = { years: formData.expCurrentBranch2 };
     } else if (formData.expService) {
-      endpoint = 'http://localhost:3001/api/employeeSearch/pastExperienceGreaterThan';
+      endpoint = '/employeeSearch/pastExperienceGreaterThan';
       params = { years: formData.expService };
     } else if (formData.expService2) {
-      endpoint = 'http://localhost:3001/api/employeeSearch/pastExperienceLessThan';
+      endpoint = '/employeeSearch/pastExperienceLessThan';
       params = { years: formData.expService2 };
     }
 

@@ -14,7 +14,7 @@ const TransferCycle = () => {
         closeDate: document.getElementById('closingDate').value
       };
       try {
-        const response = await RestCaller.post('http://localhost:3001/api/transferCycle/insert', formData);
+        const response = await RestCaller.post('/transferCycle/insert', formData);
         console.log('Transfer cycle inserted:', response.data);
         setPopupMessage('Transfer cycle inserted successfully!');
         showPopup();

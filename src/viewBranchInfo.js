@@ -11,7 +11,7 @@ const ViewBranchInfo = () => {
   useEffect(() => {
     const fetchBranches = async () => {
       try {
-        const response = await RestCaller.get('http://localhost:3001/api/viewBranch');
+        const response = await RestCaller.get('/viewBranch');
         setBranches(response.data);
       } catch (error) {
         console.error('Error fetching branch data:', error);

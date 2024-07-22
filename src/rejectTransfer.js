@@ -16,7 +16,7 @@ const RejectTransfer = () => {
   const [messageType, setMessageType] = useState(''); 
 
   useEffect(() => {
-    RestCaller.get('http://localhost:3001/api/rejectTransfer')
+    RestCaller.get('/rejectTransfer')
       .then(response => {
         console.log('Employee list fetched:', response.data);
         setEmployees(response.data);
@@ -30,7 +30,7 @@ const RejectTransfer = () => {
     const empNo = e.target.value;
     setSelectedEmployee(empNo);
 
-    RestCaller.get(`http://localhost:3001/api/rejectTransfer/${empNo}`)
+    RestCaller.get(`/rejectTransfer/${empNo}`)
       .then(response => {
         console.log(`Employee details fetched for empNo ${empNo}:`, response.data);
         setEmployeeDetails(response.data);
@@ -48,7 +48,7 @@ const RejectTransfer = () => {
     e.preventDefault();
     console.log('Form data submitted:', formData);
     try {
-      const response = await RestCaller.post(`http://localhost:3001/api/rejectTransfer/update/${selectedEmployee}`, {
+      const response = await RestCaller.post(`/rejectTransfer/update/${selectedEmployee}`, {
         hrDecision: formData.decisionOfHrOfficer,
         hrComment: formData.commentOfHrOfficer,
       });

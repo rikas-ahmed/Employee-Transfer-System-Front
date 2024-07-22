@@ -13,7 +13,7 @@ const DeleteTransfer = () => {
   const [messageType, setMessageType] = useState('');
 
   useEffect(() => {
-    RestCaller.get('http://localhost:3001/api/deleteTransfer')
+    RestCaller.get('/deleteTransfer')
       .then(response => {
         setEmployees(response.data);
       })
@@ -26,7 +26,7 @@ const DeleteTransfer = () => {
     const empNo = e.target.value;
     setSelectedEmployee(empNo);
 
-    RestCaller.get(`http://localhost:3001/api/deleteTransfer/${empNo}`)
+    RestCaller.get(`/deleteTransfer/${empNo}`)
       .then(response => {
         setEmployeeDetails(response.data);
       })
@@ -34,7 +34,7 @@ const DeleteTransfer = () => {
         console.error(`Error fetching employee details for empNo ${empNo}:`, error);
       });
 
-    RestCaller.get(`http://localhost:3001/api/deleteTransfer/transfer/${empNo}`)
+    RestCaller.get(`/deleteTransfer/transfer/${empNo}`)
       .then(response => {
         setTransferDetails(response.data);
       })
@@ -46,7 +46,7 @@ const DeleteTransfer = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await RestCaller.delete(`http://localhost:3001/api/deleteTransfer/${selectedEmployee}`);
+      const response = await RestCaller.delete(`/deleteTransfer/${selectedEmployee}`);
       setPopupMessage('Transfer request deleted successfully!');
       setMessageType('success');
     } catch (error) {

@@ -19,7 +19,7 @@ const DependentDetail = () => {
         relationship: document.getElementById('civilStatus').value
       };
       try {
-        const response = await RestCaller.post('http://localhost:3001/api/dependents/insert', formData);
+        const response = await RestCaller.post('/dependents/insert', formData);
         setPopupMessage('Dependent details added successfully!');
         setShowPopup(true);
         setTimeout(() => setShowPopup(false), 3000);
