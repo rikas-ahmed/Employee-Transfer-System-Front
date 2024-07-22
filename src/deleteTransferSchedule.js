@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './employeeForm.css';
+import { RestCaller } from './API/RestCaller';
 
 const DeleteTransfer = () => {
   const [activeTab, setActiveTab] = useState('insert');
@@ -12,7 +13,7 @@ const DeleteTransfer = () => {
   const [messageType, setMessageType] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:3001/api/deleteTransfer')
+    RestCaller.get('http://localhost:3001/api/deleteTransfer')
       .then(response => {
         setEmployees(response.data);
       })
@@ -25,7 +26,7 @@ const DeleteTransfer = () => {
     const empNo = e.target.value;
     setSelectedEmployee(empNo);
 
-    axios.get(`http://localhost:3001/api/deleteTransfer/${empNo}`)
+    RestCaller.get(`http://localhost:3001/api/deleteTransfer/${empNo}`)
       .then(response => {
         setEmployeeDetails(response.data);
       })
@@ -33,7 +34,7 @@ const DeleteTransfer = () => {
         console.error(`Error fetching employee details for empNo ${empNo}:`, error);
       });
 
-    axios.get(`http://localhost:3001/api/deleteTransfer/transfer/${empNo}`)
+    RestCaller.get(`http://localhost:3001/api/deleteTransfer/transfer/${empNo}`)
       .then(response => {
         setTransferDetails(response.data);
       })
@@ -45,7 +46,7 @@ const DeleteTransfer = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.delete(`http://localhost:3001/api/deleteTransfer/${selectedEmployee}`);
+      const response = await RestCaller.delete(`http://localhost:3001/api/deleteTransfer/${selectedEmployee}`);
       setPopupMessage('Transfer request deleted successfully!');
       setMessageType('success');
     } catch (error) {

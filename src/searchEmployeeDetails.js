@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './searchEmployeeDetails.css';
+import { RestCaller } from './API/RestCaller';
 
 const SearchEmployeeDetails = () => {
   const [formData, setFormData] = useState({
@@ -48,7 +49,7 @@ const SearchEmployeeDetails = () => {
     }
 
     try {
-      const response = await axios.get(endpoint, { params });
+      const response = await RestCaller.get(endpoint, { params });
       setSearchResults(response.data);
       console.log('Search results:', response.data);
     } catch (error) {

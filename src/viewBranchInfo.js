@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './employeeForm.css';
+import { RestCaller } from './API/RestCaller';
 
 const ViewBranchInfo = () => {
   const [branches, setBranches] = useState([]);
@@ -10,7 +11,7 @@ const ViewBranchInfo = () => {
   useEffect(() => {
     const fetchBranches = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/viewBranch');
+        const response = await RestCaller.get('http://localhost:3001/api/viewBranch');
         setBranches(response.data);
       } catch (error) {
         console.error('Error fetching branch data:', error);

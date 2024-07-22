@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './LoginForm.css';
+import { RestCaller } from './API/RestCaller';
 
 const LoginForm = ({ onLoginSuccess }) => {
   const [username, setUsername] = useState('');
@@ -9,7 +10,7 @@ const LoginForm = ({ onLoginSuccess }) => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:3001/api/login', { username, password });
+      const response = await RestCaller.post('http://localhost:3001/api/login', { username, password });
       if (response.status === 200) {
         onLoginSuccess();
       }
